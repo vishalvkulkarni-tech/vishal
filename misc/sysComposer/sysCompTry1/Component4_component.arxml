@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Auto generated XML Component Description for model sysCompTry1
+Model version                : 1.2
+Simulink Coder version       : Simulink Coder 25.1 (R2025a) 21-Nov-2024
+XML source code generated on : Fri Jan 31 13:55:57 2025
+Model Checksum               : Could not retrieve binfo.mat
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00052.xsd">
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>Components</SHORT-NAME>
+            <ELEMENTS>
+                <APPLICATION-SW-COMPONENT-TYPE UUID="aceb2f23-0ae7-5f19-7328-ef1f0642f799">
+                    <SHORT-NAME>Component4</SHORT-NAME>
+                    <PORTS>
+                        <R-PORT-PROTOTYPE UUID="88bb65dd-73da-5390-9712-6318968e1a78">
+                            <SHORT-NAME>Out2</SHORT-NAME>
+                        </R-PORT-PROTOTYPE>
+                        <R-PORT-PROTOTYPE UUID="a9bf157e-5fae-5958-5f7c-14ee97736400">
+                            <SHORT-NAME>Out3</SHORT-NAME>
+                        </R-PORT-PROTOTYPE>
+                        <P-PORT-PROTOTYPE UUID="97371d8a-2ebe-5035-fc6a-bdf614f358d1">
+                            <SHORT-NAME>OutBus</SHORT-NAME>
+                        </P-PORT-PROTOTYPE>
+                    </PORTS>
+                </APPLICATION-SW-COMPONENT-TYPE>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

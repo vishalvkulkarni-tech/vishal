@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Auto generated XML Component Description for model sysCompTry1
+Model version                : 1.2
+Simulink Coder version       : Simulink Coder 25.1 (R2025a) 21-Nov-2024
+XML source code generated on : Fri Jan 31 13:55:57 2025
+Model Checksum               : Could not retrieve binfo.mat
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00052.xsd">
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>Components</SHORT-NAME>
+            <ELEMENTS>
+                <COMPOSITION-SW-COMPONENT-TYPE UUID="87b2bac7-7b82-54f9-36ff-574f69a85c02">
+                    <SHORT-NAME>sysCompTry1</SHORT-NAME>
+                    <COMPONENTS>
+                        <SW-COMPONENT-PROTOTYPE UUID="6bea14c9-b658-5a9c-0852-f106ae376556">
+                            <SHORT-NAME>Composition</SHORT-NAME>
+                            <TYPE-TREF DEST="COMPOSITION-SW-COMPONENT-TYPE">/Components/Composition</TYPE-TREF>
+                        </SW-COMPONENT-PROTOTYPE>
+                        <SW-COMPONENT-PROTOTYPE UUID="974cefef-cfc8-5b55-5b13-2939a44fca75">
+                            <SHORT-NAME>Component1</SHORT-NAME>
+                            <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/Components/Component1</TYPE-TREF>
+                        </SW-COMPONENT-PROTOTYPE>
+                        <SW-COMPONENT-PROTOTYPE UUID="f2ed1c93-c1d2-5196-acde-2d68470f2dec">
+                            <SHORT-NAME>Component2</SHORT-NAME>
+                            <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/Components/Component2</TYPE-TREF>
+                        </SW-COMPONENT-PROTOTYPE>
+                        <SW-COMPONENT-PROTOTYPE UUID="77d97d96-390c-5435-e184-41f195d9491c">
+                            <SHORT-NAME>Component3</SHORT-NAME>
+                            <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/Components/Component3</TYPE-TREF>
+                        </SW-COMPONENT-PROTOTYPE>
+                        <SW-COMPONENT-PROTOTYPE UUID="7a97b48c-8dd1-5b2f-6449-f197912e6894">
+                            <SHORT-NAME>Component4</SHORT-NAME>
+                            <TYPE-TREF DEST="APPLICATION-SW-COMPONENT-TYPE">/Components/Component4</TYPE-TREF>
+                        </SW-COMPONENT-PROTOTYPE>
+                    </COMPONENTS>
+                </COMPOSITION-SW-COMPONENT-TYPE>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

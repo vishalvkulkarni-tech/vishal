@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/slsa_mm_parameter_tuning/R2021b">
+  <slsa.mm.parametertuning.VariableRegistry type="slsa.mm.parametertuning.VariableRegistry" uuid="de6b8b86-b45c-45ed-91e3-b656ba763ca6">
+    <defaultValueCachePath>D:\Vishal\Misc\Simulink\model2\slprj\raccel_deploy\upCounter\upCounter_default_variable_values.mat</defaultValueCachePath>
+    <name>upCounter</name>
+    <variables type="slsa.mm.parametertuning.Variable" uuid="4c740f74-fd1c-4028-ba5d-e2a975396a28">
+      <name>maxCnt</name>
+      <workspace type="slsa.mm.parametertuning.Workspace" uuid="497bf193-c36d-47b1-a424-458a57e3bc25"/>
+    </variables>
+    <workspaces type="slsa.mm.parametertuning.Workspace" uuid="497bf193-c36d-47b1-a424-458a57e3bc25">
+      <name>global-workspace</name>
+      <variables type="slsa.mm.parametertuning.Variable" uuid="4c740f74-fd1c-4028-ba5d-e2a975396a28"/>
+    </workspaces>
+  </slsa.mm.parametertuning.VariableRegistry>
+</MF0>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/slsa_mm_rtp_registry/R2023a">
+  <slsa.mm.rtpregistry.VariableId type="slsa.mm.rtpregistry.VariableId" uuid="11c0f0c0-0255-4dff-a3c5-46a013c631fe">
+    <workspaceName>global-workspace</workspaceName>
+    <name>maxCnt</name>
+    <parameter type="slsa.mm.rtpregistry.Parameter" uuid="aa160c56-7c7c-4982-9094-3f5bb11531d6"/>
+  </slsa.mm.rtpregistry.VariableId>
+  <slsa.mm.rtpregistry.ModelMetadata type="slsa.mm.rtpregistry.ModelMetadata" uuid="69e174fc-0fc2-45e2-aade-396835b68879">
+    <modelName>upCounter</modelName>
+  </slsa.mm.rtpregistry.ModelMetadata>
+  <slsa.mm.rtpregistry.RtpLocation type="slsa.mm.rtpregistry.RtpLocation" uuid="42747ef9-c959-4a4b-89e2-709ec9e22ba7">
+    <parameter type="slsa.mm.rtpregistry.Parameter" uuid="aa160c56-7c7c-4982-9094-3f5bb11531d6"/>
+    <valueIndices>0</valueIndices>
+    <valueIndices>0</valueIndices>
+  </slsa.mm.rtpregistry.RtpLocation>
+  <slsa.mm.rtpregistry.Parameter type="slsa.mm.rtpregistry.Parameter" uuid="aa160c56-7c7c-4982-9094-3f5bb11531d6">
+    <id type="slsa.mm.rtpregistry.VariableId" uuid="11c0f0c0-0255-4dff-a3c5-46a013c631fe"/>
+    <rtpLocation type="slsa.mm.rtpregistry.RtpLocation" uuid="42747ef9-c959-4a4b-89e2-709ec9e22ba7"/>
+  </slsa.mm.rtpregistry.Parameter>
+</MF0>

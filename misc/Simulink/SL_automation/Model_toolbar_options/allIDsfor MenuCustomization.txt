@@ -1,0 +1,13 @@
+Identifier	Description
+'Simulink:ToolsMenu'	Adds an item to the Tools menu in Simulink.
+'Simulink:FileMenu'	Adds an item to the File menu in Simulink.
+'Simulink:EditMenu'	Adds an item to the Edit menu in Simulink.
+'Simulink:ViewMenu'	Adds an item to the View menu in Simulink.
+'Simulink:SimulationMenu'	Adds an item to the Simulation menu in Simulink.
+'Simulink:FormatMenu'	Adds an item to the Format menu in Simulink.
+'Simulink:DebugMenu'	Adds an item to the Debug menu in Simulink.
+'Simulink:ModelingMenu'	Adds an item to the Modeling menu in Simulink.
+'Simulink:HelpMenu'	Adds an item to the Help menu in Simulink.
+'Simulink:DiagramMenu'	Adds an item to the Diagram menu in Simulink.
+'Simulink:AnalysisMenu'	Adds an item to the Analysis menu in Simulink.
+'Simulink:FormatMenu'	Adds an item to the Format menu in Simulink.

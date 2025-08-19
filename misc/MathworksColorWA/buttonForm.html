@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <script type="text/javascript">
+
+            function setup(htmlComponent) {
+
+                document.getElementById("myButton").addEventListener("click", function() {
+                    this.disabled = true
+                });
+
+            }
+        </script>
+    </head>
+
+    <body>
+        <button id="myButton">Press button to disable it</button>
+        <link rel="stylesheet" type="text/css" href="./myStyles.css">
+    </body>
+
+</html>

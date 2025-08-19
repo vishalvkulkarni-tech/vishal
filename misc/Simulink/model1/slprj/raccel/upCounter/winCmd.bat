@@ -1,0 +1,2 @@
+chcp 65001
+cmd /D /c start "RapidAccelerator" /B "D:\Vishal\Misc\Simulink\model1\slprj\raccel\upCounter\upCounter.exe" --config "C:\Users\Z004F2SE\AppData\Local\Temp\raccel_inputp96eac83c_4b05_423c_88ef_8a31d8f14e70.cfg" -server_info_file "C:\Users\Z004F2SE\AppData\Local\Temp\tpp96eac83c_4b05_423c_88ef_8a31d8f14e70.info" -tgtconn_server_info_file "C:\Users\Z004F2SE\AppData\Local\Temp\tgtconnp96eac83c_4b05_423c_88ef_8a31d8f14e70.info" -tgtconn_port 0 -port 0 -verbose off -w 1>"D:\Vishal\Misc\Simulink\model1\slprj\raccel\upCounter\cmdLog.txt"

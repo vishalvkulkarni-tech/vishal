@@ -1,0 +1,1 @@
+set_param(bdroot, 'EnableLBRepository', 'on');

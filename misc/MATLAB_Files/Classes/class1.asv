@@ -1,0 +1,26 @@
+classdef class1
+    properties (Acces)
+        name
+        age
+        prop3
+    end
+    methods
+        % construcor
+        function obj = class1(varargin)
+           props = ["name", "age", "prop3"];
+           for cnt = 1:nargin
+               obj.(props(cnt)) = varargin{cnt};
+           end
+        end
+        %
+        function func1(obj)
+        end
+        %
+        function func2(obj)
+        end
+    end
+    methods
+        function func3(obj)
+        end
+    end
+end

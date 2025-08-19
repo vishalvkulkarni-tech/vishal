@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Auto generated XML Component Description for model sysCompTry1
+Model version                : 1.2
+Simulink Coder version       : Simulink Coder 25.1 (R2025a) 21-Nov-2024
+XML source code generated on : Fri Jan 31 13:55:57 2025
+Model Checksum               : Could not retrieve binfo.mat
+-->
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00052.xsd">
+    <AR-PACKAGES>
+        <AR-PACKAGE>
+            <SHORT-NAME>Components</SHORT-NAME>
+            <ELEMENTS>
+                <COMPOSITION-SW-COMPONENT-TYPE UUID="40e8021e-f049-51ee-1a17-dd858c342535">
+                    <SHORT-NAME>Composition</SHORT-NAME>
+                    <PORTS>
+                        <R-PORT-PROTOTYPE UUID="4f249a64-536e-5c4d-7d9d-5c59296dcbd6">
+                            <SHORT-NAME>In1</SHORT-NAME>
+                        </R-PORT-PROTOTYPE>
+                        <R-PORT-PROTOTYPE UUID="d8de5917-dd83-51ea-ed06-c58d1175149f">
+                            <SHORT-NAME>Client</SHORT-NAME>
+                        </R-PORT-PROTOTYPE>
+                        <R-PORT-PROTOTYPE UUID="976f55b5-ae03-51eb-1008-96c60e2a1b18">
+                            <SHORT-NAME>In3</SHORT-NAME>
+                        </R-PORT-PROTOTYPE>
+                        <R-PORT-PROTOTYPE UUID="448eebf2-f100-5c30-4637-100576dbbc8d">
+                            <SHORT-NAME>In2</SHORT-NAME>
+                        </R-PORT-PROTOTYPE>
+                        <P-PORT-PROTOTYPE UUID="4cb7a3d0-419d-5bb1-d8bc-26d8c476c9a7">
+                            <SHORT-NAME>OutBus</SHORT-NAME>
+                        </P-PORT-PROTOTYPE>
+                        <P-PORT-PROTOTYPE UUID="dce158ae-1e9b-5c69-f71d-951045e84ccb">
+                            <SHORT-NAME>Server</SHORT-NAME>
+                        </P-PORT-PROTOTYPE>
+                    </PORTS>
+                </COMPOSITION-SW-COMPONENT-TYPE>
+            </ELEMENTS>
+        </AR-PACKAGE>
+    </AR-PACKAGES>
+</AUTOSAR>

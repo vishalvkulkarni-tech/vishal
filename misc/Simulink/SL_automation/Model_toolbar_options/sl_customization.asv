@@ -1,0 +1,18 @@
+function sl_customization(cm)
+    % Add a custom menu item to the Simulink Tools menu
+    disp('sl_customization executed.');
+    cm.addCustomMenuFcn('Simulink:ToolsMenu', @getMyToolsMenuItems);
+end
+
+function schemaFcns = getMyToolsMenuItems(callbackInfo)
+    disp('getMyToolsMenuItems executed.');
+    schemaFcns = {@menu1, @menu2};
+end
+
+function schema = menu1(~)
+    disp('getCustomToolsMenuItem executed.');    
+    sl_container_schema
+    schema.Label = 'My Custom Tools Action 1';
+    schema.Callback = @myCustomToolsActionCallback;
+    % schema.AutoDisableWhen = 'Busy';
+end

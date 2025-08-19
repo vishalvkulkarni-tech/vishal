@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/slsa_mm_parameter_tuning/R2021b">
+  <slsa.mm.parametertuning.VariableRegistry type="slsa.mm.parametertuning.VariableRegistry" uuid="5f6cfed1-76e4-43b9-a89f-f82236e3f2f4">
+    <defaultValueCachePath>D:\Vishal\Misc\Simulink\model1\slprj\raccel\upCounter\upCounter_default_variable_values.mat</defaultValueCachePath>
+    <name>upCounter</name>
+  </slsa.mm.parametertuning.VariableRegistry>
+</MF0>
