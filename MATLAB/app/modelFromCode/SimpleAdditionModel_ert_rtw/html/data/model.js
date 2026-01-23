@@ -1,0 +1,1 @@
+var modelInfo = {model:"SimpleAdditionModel"};var modelHierarchy=[{model:"SimpleAdditionModel",relativePath:"_internal.html",parent:"null"},];var AddCode = true;var ProtectedModel = false;

@@ -1,0 +1,35 @@
+Error using matlabpath
+Modifying the search path is not supported by MATLAB Compiler. Remove functions that modify the search path from your MATLAB code. To make files visible to your deployed application, add the parent folder to your MATLAB session.
+
+Error in path (line 109)
+
+Error in addpath>doPathAddition (line 126)
+
+Error in addpath (line 90)
+
+Error in DynamicModelGUI/LoadModelButtonPushed (line 58)
+
+Error in appdesigner.internal.service.AppManagementService/executeCallback (line 165)
+
+Error in matlab.apps.AppBase>@(source,event)executeCallback(ams,app,callback,requiresEventData,event) (line 60)
+
+Error using appdesservices.internal.interfaces.model.AbstractModel/executeUserCallback (line 282)
+Error while evaluating Button PrivateButtonPushedFcn.
+
+Error using matlabpath
+Modifying the search path is not supported by MATLAB Compiler. Remove functions that modify the search path from your MATLAB code. To make files visible to your deployed application, add the parent folder to your MATLAB session.
+
+Error in path (line 109)
+
+Error in addpath>doPathAddition (line 126)
+
+Error in addpath (line 90)
+
+Error in DynamicModelGUI/LoadModelButtonPushed (line 58)
+
+Error in appdesigner.internal.service.AppManagementService/executeCallback (line 165)
+
+Error in matlab.apps.AppBase>@(source,event)executeCallback(ams,app,callback,requiresEventData,event) (line 60)
+
+Error using appdesservices.internal.interfaces.model.AbstractModel/executeUserCallback (line 282)
+Error while evaluating Button PrivateButtonPushedFcn.

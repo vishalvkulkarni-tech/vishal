@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/slsa_mm_param_graph/R2021b">
+  <slsa.mm.param.graph.VariableRegistry type="slsa.mm.param.graph.VariableRegistry" uuid="312713e0-5cb6-4535-a0e7-b19c8295634d">
+    <name>SimpleAdditionModel</name>
+    <contextManager type="slsa.mm.param.graph.ContextManager" uuid="732f1402-b39a-4e84-b43d-e9e55f1bcafd"/>
+  </slsa.mm.param.graph.VariableRegistry>
+</MF0>

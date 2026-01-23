@@ -1,0 +1,6 @@
+Path	Symbol	Reason
+DynamicModel\DynamicModelGUI.m	load_system	undeployable
+DynamicModel\DynamicModelGUI.m	save_system	undeployable
+DynamicModel\ModelParameterParser.m	bdIsLoaded	undeployable
+DynamicModel\ModelParameterParser.m	load_system	undeployable
+DynamicModel\ModelParameterParser.m	close_system	undeployable

@@ -1,0 +1,6 @@
+Create a m-script, that will accept a folder and read for either c or c++ files and supporting .h files and other files required for c or c++ files to run.
+once we find all the relevant files, read them using file read operations, and generate certain JSON structure where we can see all inputs, outputs, functions, connections that could be when we convert those c/c++ files to simulink or stateflow model.
+depending on the logic, decide somehow with certain conditions, you must add them, and decide to have simulink model or stateflow or combined model.
+then generate the model files, data dictionary m-file if needed.
+everything must happen through single m file run which will brwose a folder or multiple c, c+++, h or supporting files generally there in code generation folders of the model.
+so basically i would be able to do this even i am offline.

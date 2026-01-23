@@ -1,0 +1,395 @@
+{
+  "timestamp": "2026-01-23T11:22:09.608543",
+  "source_folder": "C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw",
+  "summary": {
+    "totalFiles": 6,
+    "totalFunctions": 4,
+    "mainFunctions": 2,
+    "helperFunctions": 0,
+    "constants": 0,
+    "defines": 23,
+    "inputs": 0,
+    "outputs": 2,
+    "connections": 3,
+    "globalVariables": 24,
+    "detectedOperation": "unknown"
+  },
+  "files": [
+    {
+      "name": "ert_main",
+      "path": "C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\ert_main.c",
+      "extension": ".c",
+      "size": 3100
+    },
+    {
+      "name": "SimpleAdditionModel",
+      "path": "C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\SimpleAdditionModel.c",
+      "extension": ".c",
+      "size": 1352
+    },
+    {
+      "name": "rtwtypes",
+      "path": "C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\rtwtypes.h",
+      "extension": ".h",
+      "size": 4520
+    },
+    {
+      "name": "SimpleAdditionModel",
+      "path": "C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\SimpleAdditionModel.h",
+      "extension": ".h",
+      "size": 2520
+    },
+    {
+      "name": "SimpleAdditionModel_private",
+      "path": "C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\SimpleAdditionModel_private.h",
+      "extension": ".h",
+      "size": 736
+    },
+    {
+      "name": "SimpleAdditionModel_types",
+      "path": "C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\SimpleAdditionModel_types.h",
+      "extension": ".h",
+      "size": 786
+    }
+  ],
+  "constants": [],
+  "defines": [
+    {
+      "name": "RTWTYPES_H",
+      "value": "/* Logical type definitions */",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "false",
+      "value": "(0U)",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "true",
+      "value": "(1U)",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "CREAL_T",
+      "value": "typedef struct {",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "CINT8_T",
+      "value": "typedef struct {",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "CUINT8_T",
+      "value": "typedef struct {",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "CINT16_T",
+      "value": "typedef struct {",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "CUINT16_T",
+      "value": "typedef struct {",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "CINT32_T",
+      "value": "typedef struct {",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "CUINT32_T",
+      "value": "typedef struct {",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "MAX_int8_T",
+      "value": "((int8_T)(127))",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "MIN_int8_T",
+      "value": "((int8_T)(-128))",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "MAX_uint8_T",
+      "value": "((uint8_T)(255U))",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "MAX_int16_T",
+      "value": "((int16_T)(32767))",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "MIN_int16_T",
+      "value": "((int16_T)(-32768))",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "MAX_uint16_T",
+      "value": "((uint16_T)(65535U))",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "MAX_int32_T",
+      "value": "((int32_T)(2147483647))",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "MIN_int32_T",
+      "value": "((int32_T)(-2147483647-1))",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "MAX_uint32_T",
+      "value": "((uint32_T)(0xFFFFFFFFU))",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "SimpleAdditionModel_h_",
+      "value": "#ifndef SimpleAdditionModel_COMMON_INCLUDES_",
+      "file": "SimpleAdditionModel"
+    },
+    {
+      "name": "SimpleAdditionModel_COMMON_INCLUDES_",
+      "value": "#include \"rtwtypes.h\"",
+      "file": "SimpleAdditionModel"
+    },
+    {
+      "name": "SimpleAdditionModel_private_h_",
+      "value": "#include \"rtwtypes.h\"",
+      "file": "SimpleAdditionModel_private"
+    },
+    {
+      "name": "SimpleAdditionModel_types_h_",
+      "value": "/* Forward declaration for rtModel */",
+      "file": "SimpleAdditionModel_types"
+    }
+  ],
+  "inputs": [],
+  "outputs": [
+    {
+      "name": "ExtY_SimpleAdditionModel_T",
+      "type": "output",
+      "file": "SimpleAdditionModel"
+    },
+    {
+      "name": "_Y.Output",
+      "type": "output",
+      "file": "SimpleAdditionModel"
+    }
+  ],
+  "allFunctions": [
+    {
+      "name": "rt_OneStep",
+      "returnType": "void",
+      "parameters": [],
+      "file": "ert_main",
+      "isStepFunction": true,
+      "isInitFunction": false,
+      "isTerminateFunction": false
+    },
+    {
+      "name": "SimpleAdditionModel_step",
+      "returnType": "void",
+      "parameters": [],
+      "file": "SimpleAdditionModel",
+      "isStepFunction": true,
+      "isInitFunction": false,
+      "isTerminateFunction": false
+    },
+    {
+      "name": "SimpleAdditionModel_initialize",
+      "returnType": "void",
+      "parameters": [],
+      "file": "SimpleAdditionModel",
+      "isStepFunction": false,
+      "isInitFunction": true,
+      "isTerminateFunction": false
+    },
+    {
+      "name": "SimpleAdditionModel_terminate",
+      "returnType": "void",
+      "parameters": [],
+      "file": "SimpleAdditionModel",
+      "isStepFunction": false,
+      "isInitFunction": false,
+      "isTerminateFunction": true
+    }
+  ],
+  "mainFunctions": [
+    {
+      "name": "rt_OneStep",
+      "returnType": "void",
+      "parameters": [],
+      "file": "ert_main",
+      "isStepFunction": true,
+      "isInitFunction": false,
+      "isTerminateFunction": false
+    },
+    {
+      "name": "SimpleAdditionModel_step",
+      "returnType": "void",
+      "parameters": [],
+      "file": "SimpleAdditionModel",
+      "isStepFunction": true,
+      "isInitFunction": false,
+      "isTerminateFunction": false
+    }
+  ],
+  "helperFunctions": [],
+  "globalVariables": [
+    {
+      "name": "OverrunFlag",
+      "type": "static boolean_T",
+      "file": "ert_main"
+    },
+    {
+      "name": "0",
+      "type": "return",
+      "file": "ert_main"
+    },
+    {
+      "name": "SimpleAdditionModel_Y",
+      "type": "ExtY_SimpleAdditionModel_T",
+      "file": "SimpleAdditionModel"
+    },
+    {
+      "name": "SimpleAdditionModel_M_",
+      "type": "static RT_MODEL_SimpleAdditionModel_T",
+      "file": "SimpleAdditionModel"
+    },
+    {
+      "name": "re",
+      "type": "real32_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "im",
+      "type": "real32_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "re",
+      "type": "real64_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "im",
+      "type": "real64_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "re",
+      "type": "real_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "im",
+      "type": "real_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "re",
+      "type": "int8_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "im",
+      "type": "int8_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "re",
+      "type": "uint8_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "im",
+      "type": "uint8_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "re",
+      "type": "int16_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "im",
+      "type": "int16_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "re",
+      "type": "uint16_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "im",
+      "type": "uint16_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "re",
+      "type": "int32_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "im",
+      "type": "int32_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "re",
+      "type": "uint32_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "im",
+      "type": "uint32_T",
+      "file": "rtwtypes"
+    },
+    {
+      "name": "Output",
+      "type": "real_T",
+      "file": "SimpleAdditionModel"
+    },
+    {
+      "name": "SimpleAdditionModel_Y",
+      "type": "extern ExtY_SimpleAdditionModel_T",
+      "file": "SimpleAdditionModel"
+    }
+  ],
+  "connections": [
+    {
+      "from": "false",
+      "to": "static boolean_T OverrunFlag",
+      "operation": "assignment",
+      "line": "static boolean_T OverrunFlag = false;",
+      "file": "ert_main"
+    },
+    {
+      "from": "30.0",
+      "to": "SimpleAdditionModel_Y.Output",
+      "operation": "assignment",
+      "line": "SimpleAdditionModel_Y.Output = 30.0;",
+      "file": "SimpleAdditionModel"
+    },
+    {
+      "from": "30.0",
+      "to": "SimpleAdditionModel_Y.Output",
+      "operation": "assignment",
+      "line": "SimpleAdditionModel_Y.Output = 30.0;",
+      "file": "SimpleAdditionModel"
+    }
+  ],
+  "modelStructure": {
+    "hasStateMachine": false,
+    "operationType": "unknown",
+    "recommendedModelType": "simulink"
+  }
+}

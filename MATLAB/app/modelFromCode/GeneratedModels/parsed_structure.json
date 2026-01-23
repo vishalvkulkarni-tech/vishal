@@ -1,0 +1,290 @@
+{
+  "timestamp":"2026-01-22 18:19:08",
+  "summary":{
+  "totalFiles":6,
+  "totalFunctions":6,
+  "mainFunctions":1,
+  "globalVariables":21,
+  "constants":0,
+  "defines":11,
+  "inputs":0,
+  "outputs":5,
+  "connections":1
+},
+  "files":[{
+  "name":"SimpleAdditionModel",
+  "path":"C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\SimpleAdditionModel.c",
+  "extension":".c",
+  "includes":["SimpleAdditionModel.h"],
+  "hasStateMachine":false,
+  "functionCount":3,
+  "constantCount":0,
+  "defineCount":0
+},
+  {
+  "name":"SimpleAdditionModel",
+  "path":"C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\SimpleAdditionModel.h",
+  "extension":".h",
+  "includes":["rtwtypes.h",
+  "math.h",
+  "SimpleAdditionModel_types.h"],
+  "hasStateMachine":false,
+  "functionCount":0,
+  "constantCount":0,
+  "defineCount":0
+},
+  {
+  "name":"SimpleAdditionModel_private",
+  "path":"C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\SimpleAdditionModel_private.h",
+  "extension":".h",
+  "includes":["rtwtypes.h",
+  "SimpleAdditionModel_types.h"],
+  "hasStateMachine":false,
+  "functionCount":0,
+  "constantCount":0,
+  "defineCount":0
+},
+  {
+  "name":"SimpleAdditionModel_types",
+  "path":"C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\SimpleAdditionModel_types.h",
+  "extension":".h",
+  "includes":[],
+  "hasStateMachine":false,
+  "functionCount":0,
+  "constantCount":0,
+  "defineCount":0
+},
+  {
+  "name":"ert_main",
+  "path":"C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\ert_main.c",
+  "extension":".c",
+  "includes":["stddef.h",
+  "stdio.h",
+  "SimpleAdditionModel.h"],
+  "hasStateMachine":false,
+  "functionCount":3,
+  "constantCount":0,
+  "defineCount":0
+},
+  {
+  "name":"rtwtypes",
+  "path":"C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\rtwtypes.h",
+  "extension":".h",
+  "includes":[],
+  "hasStateMachine":false,
+  "functionCount":0,
+  "constantCount":0,
+  "defineCount":11
+}],
+  "constants":[],
+  "defines":[{
+  "name":"false",
+  "value":"(0U)"
+},
+  {
+  "name":"true",
+  "value":"(1U)"
+},
+  {
+  "name":"MAX_int8_T",
+  "value":"((int8_T)(127))"
+},
+  {
+  "name":"MIN_int8_T",
+  "value":"((int8_T)(-128))"
+},
+  {
+  "name":"MAX_uint8_T",
+  "value":"((uint8_T)(255U))"
+},
+  {
+  "name":"MAX_int16_T",
+  "value":"((int16_T)(32767))"
+},
+  {
+  "name":"MIN_int16_T",
+  "value":"((int16_T)(-32768))"
+},
+  {
+  "name":"MAX_uint16_T",
+  "value":"((uint16_T)(65535U))"
+},
+  {
+  "name":"MAX_int32_T",
+  "value":"((int32_T)(2147483647))"
+},
+  {
+  "name":"MIN_int32_T",
+  "value":"((int32_T)(-2147483647-1))"
+},
+  {
+  "name":"MAX_uint32_T",
+  "value":"((uint32_T)(0xFFFFFFFFU))"
+}],
+  "inputs":[],
+  "outputs":[{
+  "name":"ExtY_SimpleAdditionModel_T",
+  "type":"output"
+},
+  {
+  "name":"_Y.",
+  "type":"output"
+},
+  {
+  "name":"Output",
+  "type":"output"
+},
+  {
+  "name":"ExtY_SimpleAdditionModel_T",
+  "type":"output"
+},
+  {
+  "name":"Output",
+  "type":"output"
+}],
+  "allFunctions":[{
+  "name":"SimpleAdditionModel_step",
+  "returnType":"void SimpleAdditionModel_step",
+  "inputCount":0,
+  "inputs":[]
+},
+  {
+  "name":"SimpleAdditionModel_initialize",
+  "returnType":"void SimpleAdditionModel_initialize",
+  "inputCount":0,
+  "inputs":[]
+},
+  {
+  "name":"SimpleAdditionModel_terminate",
+  "returnType":"void SimpleAdditionModel_terminate",
+  "inputCount":0,
+  "inputs":[]
+},
+  {
+  "name":"rt_OneStep",
+  "returnType":"void rt_OneStep",
+  "inputCount":0,
+  "inputs":[]
+},
+  {
+  "name":"rt_OneStep",
+  "returnType":"void rt_OneStep",
+  "inputCount":0,
+  "inputs":[]
+},
+  {
+  "name":"main",
+  "returnType":"int_T main",
+  "inputCount":2,
+  "inputs":[{
+  "declaration":"int_T argc",
+  "type":"int_T",
+  "name":"argc"
+},
+  {
+  "declaration":"const char *argv[]",
+  "type":"unknown",
+  "name":"param2"
+}]
+}],
+  "mainFunctions":{
+  "name":"SimpleAdditionModel_step",
+  "returnType":"void SimpleAdditionModel_step",
+  "inputCount":0,
+  "inputs":[]
+},
+  "globalVariables":[{
+  "name":"SimpleAdditionModel_Y",
+  "type":"ExtY_SimpleAdditionModel_T"
+},
+  {
+  "name":"Output",
+  "type":"real_T"
+},
+  {
+  "name":"0",
+  "type":"return"
+},
+  {
+  "name":"re",
+  "type":"real32_T"
+},
+  {
+  "name":"im",
+  "type":"real32_T"
+},
+  {
+  "name":"re",
+  "type":"real64_T"
+},
+  {
+  "name":"im",
+  "type":"real64_T"
+},
+  {
+  "name":"re",
+  "type":"real_T"
+},
+  {
+  "name":"im",
+  "type":"real_T"
+},
+  {
+  "name":"re",
+  "type":"int8_T"
+},
+  {
+  "name":"im",
+  "type":"int8_T"
+},
+  {
+  "name":"re",
+  "type":"uint8_T"
+},
+  {
+  "name":"im",
+  "type":"uint8_T"
+},
+  {
+  "name":"re",
+  "type":"int16_T"
+},
+  {
+  "name":"im",
+  "type":"int16_T"
+},
+  {
+  "name":"re",
+  "type":"uint16_T"
+},
+  {
+  "name":"im",
+  "type":"uint16_T"
+},
+  {
+  "name":"re",
+  "type":"int32_T"
+},
+  {
+  "name":"im",
+  "type":"int32_T"
+},
+  {
+  "name":"re",
+  "type":"uint32_T"
+},
+  {
+  "name":"im",
+  "type":"uint32_T"
+}],
+  "connections":{
+  "from":"30.0;",
+  "to":"SimpleAdditionModel_Y.Output",
+  "line":"SimpleAdditionModel_Y.Output = 30.0;",
+  "file":"SimpleAdditionModel",
+  "operation":"assignment"
+},
+  "dataFlowAnalysis":{
+  "assignment":1
+}
+}

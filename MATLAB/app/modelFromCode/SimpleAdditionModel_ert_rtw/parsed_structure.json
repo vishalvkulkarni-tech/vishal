@@ -1,0 +1,239 @@
+{
+  "timestamp":"2026-01-22 18:08:39",
+  "files":[{
+  "name":"SimpleAdditionModel",
+  "path":"C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\SimpleAdditionModel.c",
+  "extension":".c",
+  "includes":["SimpleAdditionModel.h"],
+  "hasStateMachine":false
+},
+  {
+  "name":"SimpleAdditionModel",
+  "path":"C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\SimpleAdditionModel.h",
+  "extension":".h",
+  "includes":["rtwtypes.h",
+  "math.h",
+  "SimpleAdditionModel_types.h"],
+  "hasStateMachine":false
+},
+  {
+  "name":"SimpleAdditionModel_private",
+  "path":"C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\SimpleAdditionModel_private.h",
+  "extension":".h",
+  "includes":["rtwtypes.h",
+  "SimpleAdditionModel_types.h"],
+  "hasStateMachine":false
+},
+  {
+  "name":"SimpleAdditionModel_types",
+  "path":"C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\SimpleAdditionModel_types.h",
+  "extension":".h",
+  "includes":[],
+  "hasStateMachine":false
+},
+  {
+  "name":"ert_main",
+  "path":"C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\ert_main.c",
+  "extension":".c",
+  "includes":["stddef.h",
+  "stdio.h",
+  "SimpleAdditionModel.h"],
+  "hasStateMachine":false
+},
+  {
+  "name":"rtwtypes",
+  "path":"C:\\Users\\z004f2se\\OneDrive - Siemens AG\\Vishal\\Personal\\vishal\\MATLAB\\app\\modelFromCode\\SimpleAdditionModel_ert_rtw\\rtwtypes.h",
+  "extension":".h",
+  "includes":[],
+  "hasStateMachine":false
+}],
+  "functions":[{
+  "name":"SimpleAdditionModel_step",
+  "returnType":"void SimpleAdditionModel_step",
+  "inputs":[],
+  "outputs":["void SimpleAdditionModel_step"]
+},
+  {
+  "name":"SimpleAdditionModel_initialize",
+  "returnType":"void SimpleAdditionModel_initialize",
+  "inputs":[],
+  "outputs":["void SimpleAdditionModel_initialize"]
+},
+  {
+  "name":"SimpleAdditionModel_terminate",
+  "returnType":"void SimpleAdditionModel_terminate",
+  "inputs":[],
+  "outputs":["void SimpleAdditionModel_terminate"]
+},
+  {
+  "name":"rt_OneStep",
+  "returnType":"void rt_OneStep",
+  "inputs":[],
+  "outputs":["void rt_OneStep"]
+},
+  {
+  "name":"rt_OneStep",
+  "returnType":"void rt_OneStep",
+  "inputs":[],
+  "outputs":["void rt_OneStep"]
+},
+  {
+  "name":"main",
+  "returnType":"int_T main",
+  "inputs":[{
+  "declaration":"int_T argc",
+  "type":"int_T",
+  "name":"argc"
+},
+  {
+  "declaration":"const char *argv[]",
+  "type":"unknown",
+  "name":"param2"
+}],
+  "outputs":["int_T main"]
+}],
+  "globalVariables":[{
+  "name":"SimpleAdditionModel_Y",
+  "type":"ExtY_SimpleAdditionModel_T"
+},
+  {
+  "name":"Output",
+  "type":"real_T"
+},
+  {
+  "name":"0",
+  "type":"return"
+},
+  {
+  "name":"re",
+  "type":"real32_T"
+},
+  {
+  "name":"im",
+  "type":"real32_T"
+},
+  {
+  "name":"re",
+  "type":"real64_T"
+},
+  {
+  "name":"im",
+  "type":"real64_T"
+},
+  {
+  "name":"re",
+  "type":"real_T"
+},
+  {
+  "name":"im",
+  "type":"real_T"
+},
+  {
+  "name":"re",
+  "type":"int8_T"
+},
+  {
+  "name":"im",
+  "type":"int8_T"
+},
+  {
+  "name":"re",
+  "type":"uint8_T"
+},
+  {
+  "name":"im",
+  "type":"uint8_T"
+},
+  {
+  "name":"re",
+  "type":"int16_T"
+},
+  {
+  "name":"im",
+  "type":"int16_T"
+},
+  {
+  "name":"re",
+  "type":"uint16_T"
+},
+  {
+  "name":"im",
+  "type":"uint16_T"
+},
+  {
+  "name":"re",
+  "type":"int32_T"
+},
+  {
+  "name":"im",
+  "type":"int32_T"
+},
+  {
+  "name":"re",
+  "type":"uint32_T"
+},
+  {
+  "name":"im",
+  "type":"uint32_T"
+}],
+  "connections":[{
+  "from":"SimpleAdditionModel",
+  "to":"SimpleAdditionModel_step",
+  "type":"function_call"
+},
+  {
+  "from":"SimpleAdditionModel",
+  "to":"SimpleAdditionModel_initialize",
+  "type":"function_call"
+},
+  {
+  "from":"SimpleAdditionModel",
+  "to":"SimpleAdditionModel_terminate",
+  "type":"function_call"
+},
+  {
+  "from":"SimpleAdditionModel",
+  "to":"SimpleAdditionModel_step",
+  "type":"function_call"
+},
+  {
+  "from":"SimpleAdditionModel",
+  "to":"SimpleAdditionModel_initialize",
+  "type":"function_call"
+},
+  {
+  "from":"SimpleAdditionModel",
+  "to":"SimpleAdditionModel_terminate",
+  "type":"function_call"
+},
+  {
+  "from":"ert_main",
+  "to":"SimpleAdditionModel_step",
+  "type":"function_call"
+},
+  {
+  "from":"ert_main",
+  "to":"SimpleAdditionModel_initialize",
+  "type":"function_call"
+},
+  {
+  "from":"ert_main",
+  "to":"SimpleAdditionModel_terminate",
+  "type":"function_call"
+},
+  {
+  "from":"ert_main",
+  "to":"rt_OneStep",
+  "type":"function_call"
+},
+  {
+  "from":"ert_main",
+  "to":"rt_OneStep",
+  "type":"function_call"
+},
+  {
+  "from":"ert_main",
+  "to":"main",
+  "type":"function_call"
+}]
+}

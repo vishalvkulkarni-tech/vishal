@@ -16,17 +16,23 @@ A complete system that:
 | `ModelParameterParser.m` | Class that reads models and extracts parameters |
 | `DynamicModelGUI.m` | Main GUI application |
 | `testDynamicGUI.m` | Demo script to test everything |
-| `autoCompileModelToDLL.m` | **🔥 Fully automated DLL compilation** |
-| `createModelAndCompileToDLL.m` | Helper for code generation (manual DLL) |
+| `createModelAndCompileToDLL.m` | Helper for code generation |
 | `README_Deployment.md` | Full deployment documentation |
 
 ## 🚀 Getting Started (3 Steps)
+
+### Prerequisites
+
+```matlab
+% Add the app1 folder to your MATLAB path
+addpath('path/to/your/MATLAB/app/app1');
+```
 
 ### Step 1: Test the System
 
 ```matlab
 % Run this in MATLAB
-app.testDynamicGUI()
+testDynamicGUI
 ```
 
 This will:
@@ -46,7 +52,7 @@ In the GUI window:
 
 ```matlab
 % Load any Simulink model
-guiApp = app.DynamicModelGUI('YourModelName');
+guiApp = DynamicModelGUI('YourModelName');
 ```
 
 ## 🔧 What Parameters Are Supported?
@@ -62,7 +68,7 @@ Currently extracts:
 
 ```matlab
 % One command to generate C code AND compile to DLL!
-[dllPath, headerPath] = app.autoCompileModelToDLL('SimpleAdditionModel');
+[dllPath, headerPath] = autoCompileModelToDLL('SimpleAdditionModel');
 ```
 
 This automatically:
@@ -77,7 +83,7 @@ This automatically:
 **Option A: Fully Automated (Recommended)**
 ```matlab
 % 1. One command creates DLL automatically
-[dll, hdr] = app.autoCompileModelToDLL('SimpleAdditionModel');
+[dll, hdr] = autoCompileModelToDLL('SimpleAdditionModel');
 
 % 2. Test the DLL
 test_SimpleAdditionModel_dll
@@ -89,7 +95,7 @@ mcc -m DynamicModelGUI.m -a ModelParameterParser.m -a SimpleAdditionModel_dll.me
 **Option B: Manual Steps**
 ```matlab
 % 1. Generate code only (you compile DLL manually)
-app.createModelAndCompileToDLL('SimpleAdditionModel')
+createModelAndCompileToDLL('SimpleAdditionModel')
 
 % 2. Follow instructions to compile DLL
 % 3. Compile GUI
@@ -173,10 +179,10 @@ end
 addpath('path/to/your/model');
 ```
 
-**"app.ModelParameterParser not found"**
+**"Functions not found"**
 ```matlab
-% Make sure you're in the workspace root or add the +app folder to path
-% The + prefix means it's a package, use: app.ClassName
+% Make sure the app1 folder is on your MATLAB path
+addpath('path/to/your/MATLAB/app/app1');
 ```
 
 **GUI doesn't show parameters**
@@ -186,11 +192,11 @@ addpath('path/to/your/model');
 ## 📚 Learn More
 
 - **Full Deployment Guide**: [README_Deployment.md](README_Deployment.md)
-- **Test Script**: Run `app.testDynamicGUI()` to see everything in action
+- **Test Script**: Run `testDynamicGUI` to see everything in action
 
 ## 💡 Next Steps
 
-1. ✅ Run `app.testDynamicGUI()` - **Start here!**
+1. ✅ Run `testDynamicGUI` - **Start here!**
 2. Create your own model with parameters
 3. Use the GUI to simulate with different values
 4. Follow deployment guide to create standalone EXE
@@ -211,5 +217,5 @@ The key is using **Simulink Coder** to generate C code (DLL) and **MATLAB Compil
 
 **Ready to start?** Run:
 ```matlab
-app.testDynamicGUI()
+testDynamicGUI
 ```
