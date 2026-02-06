@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/slsa_mm_param_graph/R2021b">
+  <slsa.mm.param.graph.VariableRegistry type="slsa.mm.param.graph.VariableRegistry" uuid="383eb711-734b-463e-86a0-20a36de7cea9">
+    <name>addition_model</name>
+    <variables type="slsa.mm.param.graph.Variable" uuid="b7254c36-2375-46c3-bbbc-875e34f6fc8b">
+      <name>a1</name>
+      <workspace type="slsa.mm.param.graph.Workspace" uuid="a21b8ae1-477d-423d-9e10-f8f4e20a892d"/>
+    </variables>
+    <variables type="slsa.mm.param.graph.Variable" uuid="5604a363-3b87-4d96-a683-5cb9a01cac02">
+      <name>a2</name>
+      <workspace type="slsa.mm.param.graph.Workspace" uuid="a21b8ae1-477d-423d-9e10-f8f4e20a892d"/>
+    </variables>
+    <workspaces type="slsa.mm.param.graph.Workspace" uuid="a21b8ae1-477d-423d-9e10-f8f4e20a892d">
+      <name>global-workspace</name>
+      <variables type="slsa.mm.param.graph.Variable" uuid="b7254c36-2375-46c3-bbbc-875e34f6fc8b"/>
+      <variables type="slsa.mm.param.graph.Variable" uuid="5604a363-3b87-4d96-a683-5cb9a01cac02"/>
+    </workspaces>
+    <contextManager type="slsa.mm.param.graph.ContextManager" uuid="8cff871a-1552-4f77-9bed-cc25eecd3860"/>
+  </slsa.mm.param.graph.VariableRegistry>
+</MF0>

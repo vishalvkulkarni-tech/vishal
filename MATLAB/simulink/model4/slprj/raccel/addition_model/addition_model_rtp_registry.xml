@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/slsa_mm_param_rtp/R2023a">
+  <slsa.mm.param.rtp.ModelMetadata type="slsa.mm.param.rtp.ModelMetadata" uuid="f9945a6e-86e5-400e-b8b6-baf608975673">
+    <modelName>addition_model</modelName>
+  </slsa.mm.param.rtp.ModelMetadata>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="a2664257-bbda-48cd-95f0-36aabe342199">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="880ab6b5-c217-4604-b977-a0c48d5559e6"/>
+    <valueIndices>1</valueIndices>
+    <valueIndices>1</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="a2790415-426d-4be5-9dbd-66249525253f">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="862d8dda-5c58-4142-9953-91668c6dad2e"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="b7228b56-5e77-44cc-9d5e-bfb7a0c810b8"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="862d8dda-5c58-4142-9953-91668c6dad2e">
+    <workspaceName>global-workspace</workspaceName>
+    <name>a1</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="a2790415-426d-4be5-9dbd-66249525253f"/>
+  </slsa.mm.param.rtp.VariableId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="b7228b56-5e77-44cc-9d5e-bfb7a0c810b8">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="a2790415-426d-4be5-9dbd-66249525253f"/>
+    <valueIndices>0</valueIndices>
+    <valueIndices>0</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="880ab6b5-c217-4604-b977-a0c48d5559e6">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="8491fdcf-7bb2-4b3a-b915-72aa1d087f5d"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="a2664257-bbda-48cd-95f0-36aabe342199"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="8491fdcf-7bb2-4b3a-b915-72aa1d087f5d">
+    <workspaceName>global-workspace</workspaceName>
+    <name>a2</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="880ab6b5-c217-4604-b977-a0c48d5559e6"/>
+  </slsa.mm.param.rtp.VariableId>
+</MF0>

@@ -1,0 +1,76 @@
+═══════════════════════════════════════════════════════════════
+  MOTOR & BATTERY FRAMEWORK - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════
+
+✓ SETUP COMPLETE! Everything is ready to use.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📂 AVAILABLE MODELS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. PMSM_FOC_Basic.slx
+   Location: 02_models/motor_models/
+   Purpose: PMSM with Field-Oriented Control structure
+   Open: open('02_models/motor_models/PMSM_FOC_Basic.slx')
+
+2. Battery_Thevenin_2RC.slx
+   Location: 02_models/battery_models/
+   Purpose: Battery 2RC equivalent circuit with thermal
+   Open: open('02_models/battery_models/Battery_Thevenin_2RC.slx')
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔋 AVAILABLE BATTERY CELLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Variable        Cell Name              Type   Capacity  Max Current
+────────────────────────────────────────────────────────────────────
+battery_LG      LG MJ1                 NMC    3.5 Ah    10 A  ⚡
+battery_Samsung Samsung 25R            NMC    2.5 Ah    20 A  🚀
+battery_Panasonic Panasonic NCR18650B NCA    3.35 Ah   6.7 A 🔋
+battery_A123    A123 LFP               LFP    2.5 Ah    50 A  💪
+
+Switch battery: battery = battery_Samsung; thermal = thermal_Samsung;
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚗 DRIVE CYCLES (in workspace)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+cycle_UDDS   - Urban driving
+cycle_HWFET  - Highway driving
+cycle_US06   - Aggressive/high speed
+cycle_WLTC   - Worldwide harmonized
+
+Plot cycle: plot(cycle_UDDS.time, cycle_UDDS.velocity_kph)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚙️  USEFUL COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# View battery comparison
+disp(battery_comparison)
+
+# View drive cycle summary
+disp(drive_cycle_summary)
+
+# Plot motor efficiency map
+plot_efficiency_map(motor_efficiency_map, motor_losses_map, motor)
+
+# Generate new drive cycle
+my_cycle = generate_drive_cycle('US06')
+
+# Reload workspace
+load('framework_complete_workspace.mat')
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📚 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Theory:          01_theory/
+Getting Started: GETTING_STARTED.md
+Full Index:      PROJECT_INDEX.md
+FOC Guide:       01_theory/06_FOC_practical_guide.md
+SOC Guide:       01_theory/07_SOC_estimation_guide.md
+
+═══════════════════════════════════════════════════════════════
+Ready to start modeling! 🚀
+═══════════════════════════════════════════════════════════════

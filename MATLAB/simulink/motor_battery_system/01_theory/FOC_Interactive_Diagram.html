@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOC System - Interactive Diagram</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .controls {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 2px solid #dee2e6;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .controls label {
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .controls select, .controls button {
+            padding: 10px 20px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .controls select:hover, .controls button:hover {
+            border-color: #667eea;
+            background: #f0f0ff;
+        }
+        
+        .controls button {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            font-weight: 600;
+        }
+        
+        .controls button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .diagram-container {
+            padding: 40px;
+            background: #ffffff;
+            min-height: 800px;
+            position: relative;
+        }
+        
+        .block {
+            position: absolute;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9em;
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .block:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+        
+        .block.active {
+            box-shadow: 0 0 0 3px #ffd700;
+            z-index: 99;
+        }
+        
+        .block-title {
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .block-params {
+            font-size: 0.85em;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        /* Color Classes */
+        .input { background: linear-gradient(135deg, #e1f5ff 0%, #b3e5fc 100%); border: 2px solid #01579b; }
+        .control { background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%); border: 2px solid #f57f17; }
+        .transform { background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border: 2px solid #4a148c; }
+        .power { background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%); border: 2px solid #b71c1c; }
+        .motor { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid #1b5e20; }
+        .sensor { background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%); border: 2px solid #004d40; }
+        
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .connection {
+            stroke: #495057;
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+        
+        .connection.highlighted {
+            stroke: #ffd700;
+            stroke-width: 4;
+            filter: drop-shadow(0 0 5px #ffd700);
+        }
+        
+        .signal-label {
+            font-size: 11px;
+            fill: #495057;
+            font-weight: 600;
+            pointer-events: none;
+        }
+        
+        .info-panel {
+            position: fixed;
+            right: 20px;
+            top: 150px;
+            width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: none;
+            z-index: 1000;
+        }
+        
+        .info-panel.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(320px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .info-panel h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        .info-panel p {
+            margin: 10px 0;
+            line-height: 1.6;
+            color: #495057;
+        }
+        
+        .info-panel .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .legend {
+            background: #f8f9fa;
+            padding: 20px;
+            border-top: 2px solid #dee2e6;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            border: 2px solid;
+        }
+        
+        @media (max-width: 1200px) {
+            .info-panel {
+                position: relative;
+                right: auto;
+                top: auto;
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ FOC Control System</h1>
+            <p>Field-Oriented Control for PMSM Motors - Interactive Visualization</p>
+        </header>
+        
+        <div class="controls">
+            <label for="viewSelect">View:</label>
+            <select id="viewSelect">
+                <option value="complete">Complete System</option>
+                <option value="control">Control Loops Only</option>
+                <option value="transforms">Coordinate Transforms</option>
+                <option value="power">Power Stage</option>
+                <option value="feedback">Feedback Path</option>
+            </select>
+            
+            <label for="motorType">Motor Type:</label>
+            <select id="motorType">
+                <option value="SPMSM">SPMSM (Ld = Lq)</option>
+                <option value="IPMSM">IPMSM (Ld ≠ Lq)</option>
+            </select>
+            
+            <button onclick="animateSignalFlow()">▶ Animate Signal Flow</button>
+            <button onclick="resetView()">🔄 Reset</button>
+            <button onclick="exportDiagram()">💾 Export as Image</button>
+        </div>
+        
+        <div class="diagram-container" id="diagramContainer">
+            <svg id="connectionsSVG">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#495057" />
+                    </marker>
+                </defs>
+            </svg>
+            
+            <!-- Input Layer -->
+            <div class="block input" style="left: 50px; top: 50px;" data-id="speedRef" onclick="showInfo('speedRef')">
+                <div class="block-title">Speed Reference</div>
+                <div class="block-params">ω_ref (rpm)</div>
+            </div>
+            
+            <!-- Speed Controller -->
+            <div class="block control" style="left: 50px; top: 150px;" data-id="speedPI" onclick="showInfo('speedPI')">
+                <div class="block-title">Speed PI</div>
+                <div class="block-params">Kp, Ki</div>
+            </div>
+            
+            <!-- Torque Converter -->
+            <div class="block control" style="left: 50px; top: 250px;" data-id="torqueConv" onclick="showInfo('torqueConv')">
+                <div class="block-title">Torque → iq</div>
+                <div class="block-params">MTPA / FW</div>
+            </div>
+            
+            <!-- Current References -->
+            <div class="block input" style="left: 250px; top: 200px;" data-id="iqRef" onclick="showInfo('iqRef')">
+                <div class="block-title">iq_ref</div>
+                <div class="block-params">Torque Current</div>
+            </div>
+            
+            <div class="block input" style="left: 250px; top: 300px;" data-id="idRef" onclick="showInfo('idRef')">
+                <div class="block-title">id_ref</div>
+                <div class="block-params">Flux Current</div>
+            </div>
+            
+            <!-- Current Controllers -->
+            <div class="block control" style="left: 400px; top: 200px;" data-id="qPI" onclick="showInfo('qPI')">
+                <div class="block-title">q-axis PI</div>
+                <div class="block-params">Kp_q, Ki_q</div>
+            </div>
+            
+            <div class="block control" style="left: 400px; top: 300px;" data-id="dPI" onclick="showInfo('dPI')">
+                <div class="block-title">d-axis PI</div>
+                <div class="block-params">Kp_d, Ki_d</div>
+            </div>
+            
+            <!-- Inverse Park -->
+            <div class="block transform" style="left: 600px; top: 250px;" data-id="invPark" onclick="showInfo('invPark')">
+                <div class="block-title">Inverse Park</div>
+                <div class="block-params">dq → αβ</div>
+            </div>
+            
+            <!-- Inverse Clarke -->
+            <div class="block transform" style="left: 800px; top: 250px;" data-id="invClarke" onclick="showInfo('invClarke')">
+                <div class="block-title">Inverse Clarke</div>
+                <div class="block-params">αβ → abc</div>
+            </div>
+            
+            <!-- SVM -->
+            <div class="block power" style="left: 1000px; top: 250px;" data-id="svm" onclick="showInfo('svm')">
+                <div class="block-title">SVM</div>
+                <div class="block-params">Space Vector</div>
+            </div>
+            
+            <!-- PWM -->
+            <div class="block power" style="left: 1150px; top: 250px;" data-id="pwm" onclick="showInfo('pwm')">
+                <div class="block-title">PWM</div>
+                <div class="block-params">10 kHz</div>
+            </div>
+            
+            <!-- Inverter -->
+            <div class="block power" style="left: 1300px; top: 250px;" data-id="inverter" onclick="showInfo('inverter')">
+                <div class="block-title">Inverter</div>
+                <div class="block-params">3-Phase</div>
+            </div>
+            
+            <!-- Motor -->
+            <div class="block motor" style="left: 1300px; top: 400px;" data-id="motor" onclick="showInfo('motor')">
+                <div class="block-title">PMSM Motor</div>
+                <div class="block-params">Rs, Ld, Lq, λm</div>
+            </div>
+            
+            <!-- Load -->
+            <div class="block motor" style="left: 1300px; top: 550px;" data-id="load" onclick="showInfo('load')">
+                <div class="block-title">Load</div>
+                <div class="block-params">J, B, T_load</div>
+            </div>
+            
+            <!-- Current Sensors -->
+            <div class="block sensor" style="left: 1100px; top: 400px;" data-id="currentSensor" onclick="showInfo('currentSensor')">
+                <div class="block-title">Current Sensors</div>
+                <div class="block-params">ia, ib, ic</div>
+            </div>
+            
+            <!-- Clarke -->
+            <div class="block transform" style="left: 900px; top: 400px;" data-id="clarke" onclick="showInfo('clarke')">
+                <div class="block-title">Clarke</div>
+                <div class="block-params">abc → αβ</div>
+            </div>
+            
+            <!-- Park -->
+            <div class="block transform" style="left: 700px; top: 400px;" data-id="park" onclick="showInfo('park')">
+                <div class="block-title">Park</div>
+                <div class="block-params">αβ → dq</div>
+            </div>
+            
+            <!-- Position Sensor -->
+            <div class="block sensor" style="left: 1100px; top: 550px;" data-id="posSensor" onclick="showInfo('posSensor')">
+                <div class="block-title">Position Sensor</div>
+                <div class="block-params">Encoder</div>
+            </div>
+            
+            <!-- Angle Conversion -->
+            <div class="block transform" style="left: 900px; top: 550px;" data-id="angleConv" onclick="showInfo('angleConv')">
+                <div class="block-title">Angle Conversion</div>
+                <div class="block-params">θ_elec = p×θ_mech</div>
+            </div>
+            
+            <!-- Trig -->
+            <div class="block transform" style="left: 700px; top: 500px;" data-id="trig" onclick="showInfo('trig')">
+                <div class="block-title">Trig Functions</div>
+                <div class="block-params">sin θ, cos θ</div>
+            </div>
+            
+            <!-- Speed Calc -->
+            <div class="block sensor" style="left: 250px; top: 550px;" data-id="speedCalc" onclick="showInfo('speedCalc')">
+                <div class="block-title">Speed Calc</div>
+                <div class="block-params">dθ/dt</div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-box input"></div>
+                <span>Input Signals</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box control"></div>
+                <span>Controllers</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box transform"></div>
+                <span>Transforms</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box power"></div>
+                <span>Power Electronics</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box motor"></div>
+                <span>Motor & Load</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box sensor"></div>
+                <span>Sensors</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="info-panel" id="infoPanel">
+        <button class="close-btn" onclick="closeInfo()">✕</button>
+        <h3 id="infoTitle">Block Information</h3>
+        <div id="infoContent"></div>
+    </div>
+    
+    <script>
+        const blockInfo = {
+            speedRef: {
+                title: "Speed Reference",
+                description: "Desired motor speed in RPM or rad/s. This is the setpoint for the speed control loop.",
+                inputs: ["User command"],
+                outputs: ["ω_ref → Speed PI"],
+                equations: ["Setpoint value from user or higher-level controller"]
+            },
+            speedPI: {
+                title: "Speed PI Controller",
+                description: "Outer control loop that regulates motor speed. Outputs torque command.",
+                inputs: ["ω_ref (reference)", "ω_measured (feedback)"],
+                outputs: ["T_ref → Torque converter"],
+                equations: ["T_ref = Kp_speed × error + Ki_speed × ∫error dt", "Kp_speed = ωBW_speed × J", "Ki_speed = ωBW_speed × 0.1"]
+            },
+            torqueConv: {
+                title: "Torque to iq Converter",
+                description: "Converts torque command to q-axis current reference. Implements MTPA or field weakening.",
+                inputs: ["T_ref (torque)", "Motor type", "Speed"],
+                outputs: ["iq_ref", "id_ref (adjusted)"],
+                equations: ["SPMSM: iq_ref = T_ref / (1.5 × p × λm)", "id_ref = 0 (SPMSM) or MTPA/FW (IPMSM)"]
+            },
+            iqRef: {
+                title: "q-axis Current Reference",
+                description: "Torque-producing current component. Directly controls motor torque.",
+                inputs: ["From torque converter"],
+                outputs: ["iq_ref → q-axis PI"],
+                equations: ["Torque ∝ iq"]
+            },
+            idRef: {
+                title: "d-axis Current Reference",
+                description: "Flux-producing current component. Usually 0 for SPMSM, varies for IPMSM.",
+                inputs: ["From torque converter or constant"],
+                outputs: ["id_ref → d-axis PI"],
+                equations: ["SPMSM: id = 0", "IPMSM: id varies for field weakening"]
+            },
+            qPI: {
+                title: "q-axis PI Controller",
+                description: "Fast inner loop controlling torque current. Bandwidth ~1000 rad/s.",
+                inputs: ["iq_ref", "iq_measured"],
+                outputs: ["Vq_ref → Inverse Park"],
+                equations: ["Vq = Kp_q × error + Ki_q × ∫error dt", "Kp_q = ωBW × Lq", "Ki_q = ωBW × Rs"]
+            },
+            dPI: {
+                title: "d-axis PI Controller",
+                description: "Fast inner loop controlling flux current. Bandwidth ~1000 rad/s.",
+                inputs: ["id_ref", "id_measured"],
+                outputs: ["Vd_ref → Inverse Park"],
+                equations: ["Vd = Kp_d × error + Ki_d × ∫error dt", "Kp_d = ωBW × Ld", "Ki_d = ωBW × Rs"]
+            },
+            invPark: {
+                title: "Inverse Park Transform",
+                description: "Converts dq voltages to αβ stationary frame using rotor angle.",
+                inputs: ["Vd_ref", "Vq_ref", "θ, sin θ, cos θ"],
+                outputs: ["Vα", "Vβ"],
+                equations: ["Vα = Vd cos(θ) - Vq sin(θ)", "Vβ = Vd sin(θ) + Vq cos(θ)"]
+            },
+            invClarke: {
+                title: "Inverse Clarke Transform",
+                description: "Converts αβ voltages to 3-phase abc voltages.",
+                inputs: ["Vα", "Vβ"],
+                outputs: ["Va", "Vb", "Vc"],
+                equations: ["Va = Vα", "Vb = -0.5Vα + (√3/2)Vβ", "Vc = -0.5Vα - (√3/2)Vβ"]
+            },
+            svm: {
+                title: "Space Vector Modulation",
+                description: "Optimal PWM strategy using voltage space vectors. Better DC bus utilization than SPWM.",
+                inputs: ["Va, Vb, Vc", "Vdc_bus"],
+                outputs: ["Duty cycles A, B, C"],
+                equations: ["Sector calculation", "Duty cycle = f(Va, Vb, Vc, Vdc)"]
+            },
+            pwm: {
+                title: "PWM Generator",
+                description: "Generates high-frequency gate signals (typically 10 kHz) from duty cycles.",
+                inputs: ["Duty A, B, C", "fsw"],
+                outputs: ["Gate signals (6 total)"],
+                equations: ["Complementary signals with dead time"]
+            },
+            inverter: {
+                title: "3-Phase Inverter",
+                description: "Power stage with 6 switches (IGBTs or MOSFETs) converting DC to 3-phase AC.",
+                inputs: ["Vdc_bus", "Gate signals"],
+                outputs: ["Va, Vb, Vc (motor voltages)"],
+                equations: ["Switched voltage based on gate signals"]
+            },
+            motor: {
+                title: "PMSM Motor",
+                description: "Permanent Magnet Synchronous Motor. Converts electrical power to mechanical torque.",
+                inputs: ["3-phase voltages"],
+                outputs: ["Torque", "Position", "Currents"],
+                equations: ["Te = (3/2) p [λm iq + (Ld-Lq) id iq]", "Jdω/dt = Te - Tload - Bω"]
+            },
+            load: {
+                title: "Mechanical Load",
+                description: "External load torque and inertia opposing motor motion.",
+                inputs: ["Motor torque"],
+                outputs: ["Speed, Position"],
+                equations: ["Net torque = Motor - Load - Friction"]
+            },
+            currentSensor: {
+                title: "Current Sensors",
+                description: "Measures 3-phase currents. Typically need only 2 sensors (calculate 3rd).",
+                inputs: ["Motor phase currents"],
+                outputs: ["ia, ib, ic"],
+                equations: ["ia + ib + ic = 0 (Kirchhoff's law)"]
+            },
+            clarke: {
+                title: "Clarke Transform",
+                description: "Converts 3-phase currents to 2-phase αβ stationary frame.",
+                inputs: ["ia, ib, ic"],
+                outputs: ["iα, iβ"],
+                equations: ["iα = ia", "iβ = (ia + 2ib) / √3"]
+            },
+            park: {
+                title: "Park Transform",
+                description: "Converts αβ currents to dq rotating frame. Makes AC currents appear as DC!",
+                inputs: ["iα, iβ", "θ, sin θ, cos θ"],
+                outputs: ["id", "iq"],
+                equations: ["id = iα cos(θ) + iβ sin(θ)", "iq = -iα sin(θ) + iβ cos(θ)"]
+            },
+            posSensor: {
+                title: "Position Sensor",
+                description: "Encoder or resolver measuring rotor mechanical position.",
+                inputs: ["Motor shaft"],
+                outputs: ["θ_mechanical"],
+                equations: ["Digital encoder counts or analog resolver"]
+            },
+            angleConv: {
+                title: "Angle Conversion",
+                description: "Converts mechanical angle to electrical angle using pole pairs.",
+                inputs: ["θ_mech", "p (pole pairs)"],
+                outputs: ["θ_elec"],
+                equations: ["θ_elec = p × θ_mech"]
+            },
+            trig: {
+                title: "Trigonometric Functions",
+                description: "Computes sin and cos of electrical angle for Park/Inverse Park transforms.",
+                inputs: ["θ_electrical"],
+                outputs: ["sin(θ)", "cos(θ)"],
+                equations: ["Fast lookup table or CORDIC algorithm"]
+            },
+            speedCalc: {
+                title: "Speed Calculation",
+                description: "Computes mechanical speed from position derivative.",
+                inputs: ["θ_mechanical or θ_electrical"],
+                outputs: ["ω_measured"],
+                equations: ["ω = dθ/dt (using differentiation or encoder)"]
+            }
+        };
+        
+        const connections = [
+            {from: 'speedRef', to: 'speedPI', label: 'ω_ref'},
+            {from: 'speedPI', to: 'torqueConv', label: 'T_ref'},
+            {from: 'torqueConv', to: 'iqRef', label: 'iq_ref'},
+            {from: 'torqueConv', to: 'idRef', label: 'id_ref'},
+            {from: 'iqRef', to: 'qPI', label: ''},
+            {from: 'idRef', to: 'dPI', label: ''},
+            {from: 'qPI', to: 'invPark', label: 'Vq'},
+            {from: 'dPI', to: 'invPark', label: 'Vd'},
+            {from: 'invPark', to: 'invClarke', label: 'Vαβ'},
+            {from: 'invClarke', to: 'svm', label: 'Vabc'},
+            {from: 'svm', to: 'pwm', label: 'Duty'},
+            {from: 'pwm', to: 'inverter', label: 'Gates'},
+            {from: 'inverter', to: 'motor', label: '3φ AC'},
+            {from: 'motor', to: 'load', label: 'Torque'},
+            {from: 'motor', to: 'currentSensor', label: 'iabc'},
+            {from: 'currentSensor', to: 'clarke', label: ''},
+            {from: 'clarke', to: 'park', label: 'iαβ'},
+            {from: 'park', to: 'qPI', label: 'iq', feedback: true},
+            {from: 'park', to: 'dPI', label: 'id', feedback: true},
+            {from: 'motor', to: 'posSensor', label: 'θ'},
+            {from: 'posSensor', to: 'angleConv', label: 'θ_m'},
+            {from: 'angleConv', to: 'trig', label: 'θ_e'},
+            {from: 'angleConv', to: 'speedCalc', label: ''},
+            {from: 'speedCalc', to: 'speedPI', label: 'ω', feedback: true},
+            {from: 'trig', to: 'park', label: 'sin/cos'},
+            {from: 'trig', to: 'invPark', label: 'sin/cos'}
+        ];
+        
+        function drawConnections() {
+            const svg = document.getElementById('connectionsSVG');
+            svg.innerHTML = '<defs><marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#495057" /></marker></defs>';
+            
+            connections.forEach(conn => {
+                const fromEl = document.querySelector(`[data-id="${conn.from}"]`);
+                const toEl = document.querySelector(`[data-id="${conn.to}"]`);
+                
+                if (fromEl && toEl) {
+                    const fromRect = fromEl.getBoundingClientRect();
+                    const toRect = toEl.getBoundingClientRect();
+                    const containerRect = document.getElementById('diagramContainer').getBoundingClientRect();
+                    
+                    const x1 = fromRect.right - containerRect.left;
+                    const y1 = fromRect.top + fromRect.height/2 - containerRect.top;
+                    const x2 = toRect.left - containerRect.left;
+                    const y2 = toRect.top + toRect.height/2 - containerRect.top;
+                    
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    const d = `M ${x1} ${y1} C ${x1 + 50} ${y1}, ${x2 - 50} ${y2}, ${x2} ${y2}`;
+                    path.setAttribute('d', d);
+                    path.setAttribute('class', 'connection');
+                    path.setAttribute('data-from', conn.from);
+                    path.setAttribute('data-to', conn.to);
+                    svg.appendChild(path);
+                    
+                    if (conn.label) {
+                        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                        text.setAttribute('x', (x1 + x2) / 2);
+                        text.setAttribute('y', (y1 + y2) / 2 - 5);
+                        text.setAttribute('class', 'signal-label');
+                        text.textContent = conn.label;
+                        svg.appendChild(text);
+                    }
+                }
+            });
+        }
+        
+        function showInfo(blockId) {
+            const info = blockInfo[blockId];
+            if (!info) return;
+            
+            const panel = document.getElementById('infoPanel');
+            const title = document.getElementById('infoTitle');
+            const content = document.getElementById('infoContent');
+            
+            title.textContent = info.title;
+            
+            let html = `<p><strong>Description:</strong><br>${info.description}</p>`;
+            html += `<p><strong>Inputs:</strong><br>${info.inputs.join('<br>')}</p>`;
+            html += `<p><strong>Outputs:</strong><br>${info.outputs.join('<br>')}</p>`;
+            html += `<p><strong>Equations:</strong><br>${info.equations.join('<br>')}</p>`;
+            
+            content.innerHTML = html;
+            panel.classList.add('show');
+            
+            // Highlight block
+            document.querySelectorAll('.block').forEach(b => b.classList.remove('active'));
+            document.querySelector(`[data-id="${blockId}"]`).classList.add('active');
+        }
+        
+        function closeInfo() {
+            document.getElementById('infoPanel').classList.remove('show');
+            document.querySelectorAll('.block').forEach(b => b.classList.remove('active'));
+        }
+        
+        function animateSignalFlow() {
+            const paths = document.querySelectorAll('.connection');
+            paths.forEach((path, index) => {
+                setTimeout(() => {
+                    path.classList.add('highlighted');
+                    setTimeout(() => path.classList.remove('highlighted'), 500);
+                }, index * 150);
+            });
+        }
+        
+        function resetView() {
+            closeInfo();
+            document.querySelectorAll('.connection').forEach(p => p.classList.remove('highlighted'));
+        }
+        
+        function exportDiagram() {
+            alert('To export: Right-click on the diagram → "Save As" or use browser screenshot tools.\nOr press Ctrl+P to print/save as PDF.');
+        }
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            drawConnections();
+        });
+        
+        window.addEventListener('resize', () => {
+            drawConnections();
+        });
+        
+        // Motor type change handler
+        document.getElementById('motorType').addEventListener('change', (e) => {
+            const idRefBlock = document.querySelector('[data-id="idRef"] .block-params');
+            if (e.target.value === 'SPMSM') {
+                idRefBlock.textContent = 'id = 0';
+            } else {
+                idRefBlock.textContent = 'MTPA/FW';
+            }
+        });
+    </script>
+</body>
+</html>
